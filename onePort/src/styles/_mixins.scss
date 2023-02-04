@@ -13,16 +13,18 @@
   @include CenterDiv;
   border-radius: 6px;
   color: variables.$button-color;
-  background-color: variables.$Link-Background;
 }
 
 @mixin button {
   border: none;
   outline: none;
   @include buttonTemplate;
+  background-color: variables.$Link-Background;
 }
 
 @mixin outlinedButton {
   @include buttonTemplate;
-  border: 1px solid variables.$Link-Background;
+  color: variables.$font-color-link;
+  background-color:variables.$button-color;
+  border: 2px solid variables.$outlined-button-color;
 }
