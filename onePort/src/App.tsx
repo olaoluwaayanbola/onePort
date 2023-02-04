@@ -2,6 +2,7 @@ import './App.css'
 import DashRoutes from "./RouteFile"
 import TopBar from './components/TopBar/TopBar';
 import SideBar from "./components/SideBar/SideBar";
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (

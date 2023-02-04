@@ -1,0 +1,44 @@
+@use "./variables" as variables;
+@use "./mixins" as Mixins;
+
+table {
+  min-width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  thead {
+    color: #6b7280;
+    font-size: 12px;
+  }
+
+  tbody {
+    height: 150px;
+    tr {
+      padding-left: 15px;
+      border: 1px solid variables.$Border-color;
+      .ProfileIconBox {
+        display: flex;
+        height: 80px;
+        align-items: center;
+        justify-content: center;
+        .ProfileIconImg img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+        }
+      }
+      .ButtonBox {
+        text-align: center;
+        .btn {
+          display: inline-block;
+        }
+        .Shipments {
+          margin-right: 10px;
+          @include Mixins.outlinedButton;
+        }
+        .Edit {
+          @include Mixins.button;
+        }
+      }
+    }
+  }
+}
