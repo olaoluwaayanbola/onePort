@@ -2,10 +2,10 @@
   display: flex;
   flex-wrap: wrap;
 }
-.SideBar {
+.left {
   flex: 1;
 }
-.TopBar {
+.right {
   flex: 4.7;
   height: 100px;
 }
