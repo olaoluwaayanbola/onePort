@@ -1,4 +1,7 @@
 import TopBarStyles from "./TopBar.module.scss"
+import { NotificationsNoneOutlined } from '@mui/icons-material';
+
+
 
 const TopBar = () => {
   return (
@@ -9,7 +12,23 @@ const TopBar = () => {
         </span>
       </div>
       <div className={TopBarStyles.NotificationSection}>
+        <div className={TopBarStyles.NotificatIcon}>
+          <span className={TopBarStyles.Icons}><NotificationsNoneOutlined /></span>
+          <span className={TopBarStyles.Badge}>
+          6
+          </span>
+        </div>
+        <div className={TopBarStyles.UserDetails}>
+          <div className={TopBarStyles.userIcon}>
 
+          </div>
+          <div className={TopBarStyles.userName}>
+              james
+          </div>
+          <div className={TopBarStyles.DropDown}>
+              ^
+          </div>
+        </div>
       </div>
     </div>
   )

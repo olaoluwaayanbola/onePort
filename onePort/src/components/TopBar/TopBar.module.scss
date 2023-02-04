@@ -1,19 +1,61 @@
 @use "../../styles/mixins.scss" as Mixins;
 @use "../../styles/variables.scss" as variables;
 
-.Container{
-    height: 100px;
-    position: sticky;
-    font-family: 'Inter';
+.Container {
+  height: 100px;
+  position: sticky;
+  font-family: "Inter";
+  @include Mixins.CenterDiv;
+  padding: variables.$constainerPadding;
+  border: 1px solid variables.$Border-color;
+  .Page {
+    flex: 1;
+    font-size: 27px;
+    font-weight: 600;
+  }
+  .NotificationSection {
+    flex: 1;
     @include Mixins.CenterDiv;
-    border:1px solid variables.$Border-color;
-    .Page{
-        flex:1;
-        font-size: 27px;
-        font-weight: 600;
+    color: variables.$Notification-color;
+    justify-content: flex-end;
+    .NotificatIcon {
+      margin-right: 40px;
+      .Icons {
+        color: #374151;
+        position: relative;
+      }
+      .Badge {
+        top: 32px;
+        width: 16px;
+        right: 199px;
+        height: 16px;
+        font-size: 12px;
+        border-radius: 50%;
+        position: absolute;
+        color: whitesmoke;
         @include Mixins.CenterDiv;
+        background-color: variables.$Notificationbadge-background;
+      }
+      &:hover {
+        cursor: pointer;
+      }
     }
-    .NotificationSection{
-        flex:4;
+
+    .UserDetails {
+      margin-bottom: 5px;
+      @include Mixins.CenterDiv;
+      .userIcon {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: variables.$Topbar-UserIcon-alt;
+      }
+      .userName {
+        font-size: 16px;
+      }
+      & > * {
+        margin-right: 7px;
+      }
     }
+  }
 }

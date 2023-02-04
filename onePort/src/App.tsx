@@ -1,7 +1,6 @@
 import './App.css'
+import DashRoutes from "./RouteFile"
 import TopBar from './components/TopBar/TopBar';
-import Customer from "./components/Customer/Customer";
-import DashRoutes  from "./RouteFile"
 import SideBar from "./components/SideBar/SideBar";
 
 function App() {
@@ -15,16 +14,12 @@ function App() {
 function Layout() {
   return (
     <>
-      <div className="SideBar">
+      <div className="left">
         <SideBar />
       </div>
-      <div className="TopBar">
-        <div>
-          <TopBar />
-        </div>
-        <main>
-          <DashRoutes />
-        </main>
+      <div className="right">
+        <div><TopBar /></div>
+        <main><DashRoutes /></main>
       </div>
     </>
   )
