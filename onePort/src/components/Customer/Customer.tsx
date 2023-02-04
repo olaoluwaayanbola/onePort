@@ -5,13 +5,13 @@ import { Outlet } from "react-router-dom";
 const Customer = () => {
     return (
         <div className={customerStyles.Container}>
-            <div className={customerStyles.AddCustomerContainer}>
+            {/* <div className={customerStyles.AddCustomerContainer}>
                 <button className={customerStyles.AddCustomer}>
                     Add Customer
                     <AddOutlinedIcon />
                 </button>
             </div>
-            <Table />
+            <Table /> */}
             <Outlet />
         </div>
     )

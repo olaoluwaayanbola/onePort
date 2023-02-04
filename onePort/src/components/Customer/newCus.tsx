@@ -1,20 +1,19 @@
-// import { Table } from "../../Table";
-// import customerStyles from "./Customer.module.scss";
-// import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import { Table } from "../../Table";
+import customerStyles from "./Customer.module.scss";
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
-const newCus = () => {
+const NewCustomer = () => {
     return (
         <>
-        kldl
-            {/* <div className={customerStyles.AddCustomerContainer}>
+            <div className={customerStyles.AddCustomerContainer}>
                 <button className={customerStyles.AddCustomer}>
                     Add Customer
                     <AddOutlinedIcon />
                 </button>
             </div>
-            <Table /> */}
+            <Table />
         </>
     )
 }
 
-export default newCus
+export default NewCustomer
