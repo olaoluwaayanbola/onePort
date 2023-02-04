@@ -1,0 +1,19 @@
+@use "../../styles/mixins.scss" as Mixins;
+@use "../../styles/variables.scss" as variables;
+
+.Container{
+    height: 100px;
+    position: sticky;
+    font-family: 'Inter';
+    @include Mixins.CenterDiv;
+    border:1px solid variables.$Border-color;
+    .Page{
+        flex:1;
+        font-size: 27px;
+        font-weight: 600;
+        @include Mixins.CenterDiv;
+    }
+    .NotificationSection{
+        flex:4;
+    }
+}

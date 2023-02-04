@@ -1,0 +1,11 @@
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
+.SideBar {
+  flex: 1;
+}
+.TopBar {
+  flex: 4.7;
+  height: 100px;
+}

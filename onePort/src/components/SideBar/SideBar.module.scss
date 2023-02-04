@@ -1,0 +1,58 @@
+@use "../../styles/variables.scss" as variables;
+@use "../../styles/Mixins.scss" as Mixins;
+
+.Container {
+  width: 220px;
+  height: 100vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid variables.$Border-color;
+  gap: 35px;
+  .LogoBox {
+    flex: 1;
+    .LogoStyle {
+      height: 45px;
+      width: 120.47px;
+    }
+  }
+  nav {
+    flex: 5;
+    .LinkBox {
+      font-size: 18px;
+      margin-bottom: 9px;
+      @include Mixins.CenterDiv;
+      .LinkItems {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: variables.$Main-text-color;
+        justify-content: space-between;
+        &:hover {
+            color: black;
+          .ImageBox {
+            background-color: variables.$Link-Background;
+            border-radius: 4px;
+          }
+        }
+        .SideBarIcon {
+          flex: 1;
+          .ImageBox {
+            width: 30px;
+            height: 29px;
+            @include Mixins.CenterDiv;
+            img {
+              width: 17px;
+              height: 17px;
+            }
+          }
+        }
+        .NameStyling {
+          flex: 2;
+        }
+      }
+    }
+  }
+}
