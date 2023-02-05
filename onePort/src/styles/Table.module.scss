@@ -1,5 +1,5 @@
-@use "./variables" as variables;
 @use "./mixins" as Mixins;
+@use "./variables" as variables;
 
 table {
   min-width: 100%;
@@ -9,7 +9,6 @@ table {
     color: #6b7280;
     font-size: 12px;
   }
-
   tbody {
     height: 150px;
     tr {
