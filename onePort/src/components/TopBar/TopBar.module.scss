@@ -27,7 +27,7 @@
       .Badge {
         top: 32px;
         width: 16px;
-        right: 189px;
+        right: 205px;
         height: 16px;
         font-size: 12px;
         border-radius: 50%;
@@ -45,16 +45,21 @@
       margin-bottom: 5px;
       @include Mixins.CenterDiv;
       .userIcon {
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        background-color: variables.$Topbar-UserIcon-alt;
+        img {
+          width: 35px;
+          height: 35px;
+        }
       }
       .userName {
         font-size: 16px;
+        font-weight: bold;
+      }
+      .DropDown {
+        font-size: 12px;
+        @include Mixins.CenterDiv;
       }
       & > * {
-        margin-right: 7px;
+        margin-right: 5px;
       }
     }
   }

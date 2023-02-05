@@ -2,23 +2,28 @@
 @use "./variables" as variables;
 
 table {
-  min-width: 100%;
+  width: 100%;
   border-collapse: collapse;
   margin-top: 25px;
   thead {
-    color: #6b7280;
     font-size: 12px;
+    color: variables.$Main-text-color;
+    th {
+      padding-right: 50px;
+    }
   }
   tbody {
     height: 150px;
+    td{
+        margin-left: 10px;
+    }
     tr {
-      padding-left: 15px;
       border: 1px solid variables.$Border-color;
       .ProfileIconBox {
         display: flex;
+        gap: 10px;
         height: 80px;
         align-items: center;
-        justify-content: center;
         .ProfileIconImg img {
           width: 40px;
           height: 40px;
@@ -27,6 +32,7 @@ table {
       }
       .ButtonBox {
         text-align: center;
+        padding-right: 10px;
         .btn {
           display: inline-block;
         }
