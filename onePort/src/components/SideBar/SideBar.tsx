@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom"
 import Logo from "../../assets/logo.png"
-import { Links_Path } from "../../Pages/Pages"
+import { NavLink } from "react-router-dom"
 import { LinkTypes } from "../../Pages/Pages"
+import { Links_Path } from "../../Pages/Pages"
 import SideBarStyle from "./SideBar.module.scss"
 const SideBar = () => {
+  const activeStyle = {
+    color: "black"
+  }
   return (
     <div className={SideBarStyle.Container}>
       <div className={SideBarStyle.LogoBox}>
@@ -20,9 +23,12 @@ const SideBar = () => {
               className={SideBarStyle.LinkBox}
               key={LinkItems.name}
             >
-              <Link
+              <NavLink
                 to={LinkItems.path}
-                className={SideBarStyle.LinkItems}
+                id={SideBarStyle.LinkItems}
+                className={({ isActive }) =>
+                  isActive ? SideBarStyle.isActive : undefined
+                }
               >
                 <div className={SideBarStyle.SideBarIcon}>
                   <div className={SideBarStyle.ImageBox}>
@@ -32,7 +38,7 @@ const SideBar = () => {
                 <div className={SideBarStyle.NameStyling}>
                   {LinkItems.name}
                 </div>
-              </Link>
+              </NavLink>
             </div>
           ))
         }

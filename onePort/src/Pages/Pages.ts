@@ -17,47 +17,47 @@ export interface LinkTypes {
 export const Links_Path = [
     {
         name: 'Dashboard',
-        path: '/',
+        path: '/Dashboard',
         logo: Dashboard
     },
     {
-        name:'Admin',
+        name: 'Admin',
         path: '/about',
         logo: Admin
     },
     {
         name: 'Customer',
-        path: '/customer',
+        path: '/',
         logo: Customer
     },
     {
-        name:'Shipments',
-        path: '/contact',
+        name: 'Shipments',
+        path: '/Shipments',
         logo: Shippents
     },
     {
-        name:'Tracking',
-        path: '/contact',
+        name: 'Tracking',
+        path: '/Tracking',
         logo: Tracking
     },
     {
         name: 'Documents',
-        path: '/contact',
+        path: '/Documents',
         logo: Documents
     },
     {
         name: 'Rates',
-        path: '/contact',
-        logo: Rates 
+        path: '/Rates',
+        logo: Rates
     },
     {
         name: 'Quotes',
-        path: '/contact',
+        path: '/Quotes',
         logo: Quotes
     },
     {
         name: 'Invoices',
-        path: '/contact',
+        path: '/Invoices',
         logo: invoices
     },
 ];

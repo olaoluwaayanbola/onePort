@@ -1,10 +1,16 @@
 import { ReactNode } from "react"
 
-export interface children {
+interface children {
     children?: ReactNode
 }
 
-export interface MainContextTypes{
-    controlTable:boolean,
-    setControlTable:Function
+interface MainContextTypes {
+    controlTable: boolean,
+    setControlTable: Function
 }
+
+interface GetCustomerData {
+
+}
+
+export type{ children, MainContextTypes, GetCustomerData }

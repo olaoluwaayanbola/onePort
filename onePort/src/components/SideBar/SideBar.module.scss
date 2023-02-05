@@ -6,6 +6,7 @@
   height: 100vh;
   padding: 30px;
   display: flex;
+  position: sticky;
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid variables.$Border-color;
@@ -23,7 +24,14 @@
       font-size: 18px;
       margin-bottom: 9px;
       @include Mixins.CenterDiv;
-      .LinkItems {
+      .isActive {
+        color: black !important;
+        .ImageBox {
+          background-color: variables.$Link-Background;
+          border-radius: 4px;
+        }
+      }
+      #LinkItems {
         width: 100%;
         display: flex;
         align-items: center;
@@ -31,7 +39,7 @@
         color: variables.$Main-text-color;
         justify-content: space-between;
         &:hover {
-            color: black;
+          color: black;
           .ImageBox {
             background-color: variables.$Link-Background;
             border-radius: 4px;

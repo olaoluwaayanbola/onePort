@@ -6,7 +6,7 @@ const DashRoutes = () => {
     return (
         <>
             <Routes>
-                <Route path="/customer" element={<Customer />} >
+                <Route path="/" element={<Customer />} >
                     <Route path="shipping" element={<Shipping />} />
                 </Route>
             </Routes>
