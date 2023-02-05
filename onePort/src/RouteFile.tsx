@@ -1,14 +1,14 @@
 import { Routes, Route, Outlet } from "react-router-dom";
 import Customer from "./components/Customer/Customer";
 import Shipping from "./components/Customer/Shipping";
-import newCus from "./components/Customer/newCus";
+import NewCustomer from "./components/Customer/NewCus";
 const DashRoutes = () => {
     return (
         <>
             <Routes>
-                <Route path="customer" element={<Customer />} >
-                    {/* <Route path="newCustomer" element={<newCus />} /> */}
-                    <Route path="shipping" element={<Shipping />} />
+                <Route path="/" element={<Customer />} >
+                    <Route path="newCustomer" element={<NewCustomer />} />
+                    <Route path="newCustomer/shipping" element={<Shipping />} />
                 </Route>
             </Routes>
         </>
