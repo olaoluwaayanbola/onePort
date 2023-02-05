@@ -27,7 +27,7 @@ export const Links_Path = [
     },
     {
         name: 'Customer',
-        path: '/Customer',
+        path: '/customer',
         logo: Customer
     },
     {

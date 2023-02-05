@@ -1,9 +1,10 @@
-import { dummydata } from "./data";
-import TableStyles from "./styles/Table.module.scss"
+import { dummydata } from "./data/data";
+import { UseContext } from "./context/context";
 import { useNavigate } from "react-router-dom";
-
+import TableStyles from "./styles/Table.module.scss";
 export const Table = () => {
     const navigate = useNavigate()
+    const { setControlTable } = UseContext()
     return (
         <>
             <table className={TableStyles.Container}>
@@ -33,6 +34,7 @@ export const Table = () => {
                                 <div className={TableStyles.btn}>
                                     <button onClick={() => {
                                         navigate("shipping")
+                                        setControlTable(false)
                                     }} className={TableStyles.Shipments}>Shipments</button>
                                 </div>
                                 <div className={TableStyles.btn}>
