@@ -1,7 +1,6 @@
-import { useEffect,useState } from "react";
 import axios from "axios";
+import { useEffect,useState } from "react";
 import { UseContext } from "../context/context"
-
 export const TableHeads = ["FIRST NAME", "LAST NAME", "EMAIL ADDRESS", " PHONE NUMEBR", "LAST LOGIN"]
 
 export const dataFetching = (url:any) => {

@@ -5,7 +5,7 @@ import customerStyles from "./Customer.module.scss";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 
 const Customer = () => {
-    const { controlTable, GetCustomerData } = UseContext()
+    const { controlTable } = UseContext()
     return (
         <div className={customerStyles.Container}>
             {
