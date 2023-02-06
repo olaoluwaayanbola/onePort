@@ -17,7 +17,7 @@ const Customer = () => {
                             <AddOutlinedIcon />
                         </button>
                     </div>
-                    {/* <Table /> */}
+                    <Table />
                 </>
             }
             <Outlet />
