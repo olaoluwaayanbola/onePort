@@ -1,0 +1,36 @@
+@use "../../styles/variables.scss" as variables;
+@use "../../styles/Mixins.scss" as Mixins;
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .UserCard {
+    display: flex;
+    gap: 10px;
+    height: 120px;
+    padding: 0 10px;
+    width: 50%;
+    border-radius: 8px;
+    background-color: variables.$Card-background;
+    border: 1px solid variables.$outlined-button-color;
+    .ImgContainer {
+
+      img {
+
+      }
+    }
+    .UsersInfo {
+
+      .UserDetails {
+
+      }
+      .EditButton {
+
+        button {
+
+        }
+      }
+    }
+  }
+}

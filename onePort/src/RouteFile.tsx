@@ -7,7 +7,7 @@ const DashRoutes = () => {
         <>
             <Routes>
                 <Route path="/" element={<Customer />} >
-                    <Route path="shipping" element={<Shipping />} />
+                    <Route path="Shipping" element={<Shipping />} />
                 </Route>
             </Routes>
         </>

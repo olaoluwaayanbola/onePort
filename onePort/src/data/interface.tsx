@@ -1,7 +1,7 @@
 import { ReactNode } from "react"
 
 interface children {
-    children?: ReactNode
+    children?: ReactNode,
 }
 
 interface MainContextTypes {
@@ -10,7 +10,7 @@ interface MainContextTypes {
 }
 
 interface GetCustomerData {
-
+    
 }
 
 export type{ children, MainContextTypes, GetCustomerData }
