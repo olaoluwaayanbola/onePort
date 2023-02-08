@@ -7,6 +7,7 @@ const { Provider } = MainContext
 export const ContextProvider = ({ children }: children) => {
     const [controlTable, setControlTable] = useState<boolean>(true)
     const [GetCustomerData, setCustomerData] = useState<any>([])
+    console.log(controlTable)
     return (
         <Provider value={{
             controlTable,

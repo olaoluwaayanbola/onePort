@@ -2,13 +2,12 @@ import { UseContext } from "./context/context";
 import { useNavigate } from "react-router-dom";
 import TableStyles from "./styles/Table.module.scss";
 import { TableHeads } from "./data/data";
-import { dataFetching } from "./data/data";
 
-export const Table = () => {
+
+export const Table = ({ data }: any) => {
     const navigate = useNavigate()
     const { setControlTable } = UseContext()
-    const { data } = dataFetching("https://demo3522726.mockable.io/get_customers")
-   
+
     return (
         <>
             <table className={TableStyles.Container}>
@@ -37,7 +36,7 @@ export const Table = () => {
                             <td className={TableStyles.ButtonBox}>
                                 <div className={TableStyles.btn}>
                                     <button onClick={() => {
-                                        navigate("shipping")
+                                        navigate("Shipping")
                                         setControlTable(false)
                                     }} className={TableStyles.Shipments}>Shipments</button>
                                 </div>

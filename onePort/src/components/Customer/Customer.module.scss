@@ -2,7 +2,7 @@
 @use "../../styles/Mixins.scss" as Mixins;
 
 .Container{
-    padding: 30px 60px; 
+    padding: 30px 60px;
     .AddCustomerContainer{
         button{
             @include Mixins.button 
