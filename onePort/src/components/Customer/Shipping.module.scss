@@ -8,28 +8,100 @@
   .UserCard {
     display: flex;
     gap: 10px;
-    height: 120px;
-    padding: 0 10px;
-    width: 50%;
+    width: 48%;
+    height: 100px;
+    padding: 10px;
     border-radius: 8px;
-    background-color: variables.$Card-background;
+    align-items: center;
     border: 1px solid variables.$outlined-button-color;
+    background-color: variables.$Card-background;
     .ImgContainer {
-
       img {
-
+        border-radius: 50%;
+        padding: 10px;
       }
     }
     .UsersInfo {
-
+      flex: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       .UserDetails {
-
+        span {
+          display: block;
+          line-height: 20px;
+        }
+        .UsersName{
+          font-size: 18px;
+          font-weight: bold;
+        }
       }
       .EditButton {
-
         button {
-
+          border: none;
+          background-color: variables.$Link-Background;
+          outline: none;
+          color: white;
+          border-radius: 6px;
+          padding: 6px 25px;
+          cursor: pointer;
         }
+      }
+    }
+  }
+  .ButtonSearchBar {
+    display: flex;
+    height: 37px;
+    justify-content: space-between;
+    .btnContainer {
+      display: flex;
+      gap: 9px;
+      flex: 3;
+      button {
+        @include Mixins.buttonTemplate;
+        padding: 10px 5px;
+        border: none;
+        outline: none;
+        font-size: 13.8px;
+        color: black;
+        background: #f3f4f6;
+        border: 1px solid #d1d5db;
+        box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+        border-radius: 6px;
+        transition: ease 0.5s;
+      }
+      .active,
+      button:hover {
+        background-color: variables.$Link-Background;
+        color: white;
+      }
+    }
+    .inputContainer {
+      flex: 1;
+      display: flex;
+      padding-left: 10px;
+      justify-content: flex-end;
+
+      .SearchBarWrapper {
+        border: 1px solid #d1d5db;
+        box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+        border-radius: 6px;
+        color: #6b7280;
+        @include Mixins.CenterDiv;
+        input {
+          border: none;
+          outline: none;
+          width: 80%;
+          // font-size: 12px;
+        }
+        input::placeholder {
+          font-size: 12px;
+        }
+        .Icon {
+          font-size: 16px;
+          margin-right: 5px;
+        }
+        width: 100%;
       }
     }
   }

@@ -5,16 +5,14 @@
   align-items: center;
   justify-content: center;
 }
-
 @mixin buttonTemplate {
   font-size: 14px;
   cursor: pointer;
-  padding: 8px 14px;
+  padding: 8px 12px;
   @include CenterDiv;
   border-radius: 6px;
   color: variables.$button-color;
 }
-
 @mixin button {
   border: none;
   outline: none;
@@ -25,6 +23,6 @@
 @mixin outlinedButton {
   @include buttonTemplate;
   color: variables.$font-color-link;
-  background-color:variables.$button-color;
+  background-color: variables.$button-color;
   border: 2px solid variables.$outlined-button-color;
 }

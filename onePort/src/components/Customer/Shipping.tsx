@@ -3,8 +3,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Table } from "../../Table";
-
+import { useState } from "react"
 const Shipping = () => {
+    const [ActiveButton, setActiveButton] = useState<any>("")
+
     return (
         <>
             <div className={ShippingStyles.Container}>
@@ -36,23 +38,47 @@ const Shipping = () => {
                 </div>
                 <div className={ShippingStyles.ButtonSearchBar}>
                     <div className={ShippingStyles.btnContainer}>
-                        <button>
+                        <button
+                            onClick={
+                                () => {
+                                    setActiveButton("New_Shipment")
+                                    console.log(ActiveButton)
+                                }
+                            }
+                            className={ActiveButton === "New_Shipment" ? ShippingStyles.active : ShippingStyles.notactive}
+                        >
                             Add New Shipments
                             <KeyboardArrowDownIcon />
                         </button>
-                        <button>
+                        <button
+                            onClick={
+                                () => {
+                                    setActiveButton("Shipment Type")
+                                    console.log(ActiveButton)
+                                }
+                            }
+                            className={ActiveButton === "Shipment Type" ? ShippingStyles.active : ShippingStyles.notactive}
+                        >
                             Shipment Type
                             <KeyboardArrowDownIcon />
                         </button>
-                        <button>
+                        <button
+                            onClick={
+                                () => {
+                                    setActiveButton("Shipment_Date")
+                                    console.log(ActiveButton)
+                                }
+                            }
+                            className={ActiveButton === "Shipment_Date" ? ShippingStyles.active : ShippingStyles.notactive}
+                        >
                             Shipment Date
                             <KeyboardArrowDownIcon />
                         </button>
                     </div>
                     <div className={ShippingStyles.inputContainer}>
                         <div className={ShippingStyles.SearchBarWrapper}>
-                            <SearchIcon />
-                            <input type="text" placeholder="Search by shipment ID, Destination" />
+                            <SearchIcon className={ShippingStyles.Icon} />
+                            <input type="text" placeholder="Search by shipment ID,Destination" />
                         </div>
                     </div>
                 </div>
