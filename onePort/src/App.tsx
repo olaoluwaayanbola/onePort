@@ -4,7 +4,6 @@ import TopBar from './components/TopBar/TopBar';
 import SideBar from "./components/SideBar/SideBar";
 
 function App() {
-  
   return (
     <div className="App">
       <Layout />
