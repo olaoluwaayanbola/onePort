@@ -2,10 +2,9 @@ import { UseContext } from "./context/context";
 import { useNavigate } from "react-router-dom";
 import TableStyles from "./styles/Table.module.scss";
 
-export const Table = ({ data,TableHead }: any) => {
+export const Table = ({ data, TableHead }: any) => {
     const navigate = useNavigate()
     const { setControlTable } = UseContext()
-
     return (
         <>
             <table className={TableStyles.Container}>

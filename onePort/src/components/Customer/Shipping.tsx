@@ -86,7 +86,7 @@ const Shipping = () => {
                     </div>
                 </div>
                 <div className={ShippingStyles.Table}>
-                    <Table TableHead={TableHeaderShipment}/>
+                    {/* <Table data={data} TableHead={TableHeaderShipment}/> */}
                 </div>
             </div>
         </>
