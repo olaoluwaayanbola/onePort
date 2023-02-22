@@ -1,10 +1,8 @@
 import { UseContext } from "./context/context";
 import { useNavigate } from "react-router-dom";
 import TableStyles from "./styles/Table.module.scss";
-import { TableHeads } from "./data/data";
 
-
-export const Table = ({ data }: any) => {
+export const Table = ({ data,TableHead }: any) => {
     const navigate = useNavigate()
     const { setControlTable } = UseContext()
 
@@ -14,7 +12,7 @@ export const Table = ({ data }: any) => {
                 <thead>
                     <tr>
                         {
-                            TableHeads.map((items: any) => (
+                            TableHead.map((items: any) => (
                                 <th key={items}>{items}</th>
                             ))
                         }

@@ -1,12 +1,15 @@
+import { Table } from "../../Table";
 import ShippingStyles from "./Shipping.module.scss";
 import SearchIcon from '@mui/icons-material/Search';
+import { TableHeaderShipment } from "../../data/data";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Table } from "../../Table";
+import { dataFetching } from "../../data/data";
 import { useState } from "react"
-const Shipping = () => {
-    const [ActiveButton, setActiveButton] = useState<any>("")
 
+const Shipping = () => {
+    const { data } = dataFetching("https://demo3522726.mockable.io/get_single_shipment_details/987654321")
+    const [ActiveButton, setActiveButton] = useState<any>("")
     return (
         <>
             <div className={ShippingStyles.Container}>
@@ -83,7 +86,7 @@ const Shipping = () => {
                     </div>
                 </div>
                 <div className={ShippingStyles.Table}>
-                    <Table />
+                    <Table TableHead={TableHeaderShipment}/>
                 </div>
             </div>
         </>
