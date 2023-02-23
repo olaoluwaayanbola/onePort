@@ -23,8 +23,8 @@ const Shipping = () => {
             }
         })
     }
-    // const [dataRender, setDataRender] = useState<object[]>([])
-    // ShipmentTypeData()
+    const [dataRender, setDataRender] = useState<object[]>([])
+    ShipmentTypeData()
     return (
         <>
             <div className={ShippingStyles.Container}>
