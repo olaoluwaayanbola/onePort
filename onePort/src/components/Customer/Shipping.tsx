@@ -8,8 +8,23 @@ import { dataFetching } from "../../data/data";
 import { useState } from "react"
 
 const Shipping = () => {
-    const { data } = dataFetching("https://demo3522726.mockable.io/get_single_shipment_details/987654321")
     const [ActiveButton, setActiveButton] = useState<any>("")
+    const [ShipmentType, setShipmentType] = useState<any>(false)
+
+    const { data } = dataFetching("https://demo3522726.mockable.io/get_single_customer_shipments/123456789")
+    const importValues: object[] = []
+    const exportValues: object[] = []
+    const ShipmentTypeData = () => {
+        data?.map((ele: any) => {
+            if (ele.shipping_type === "import") {
+                importValues.push(ele)
+            } else {
+                exportValues.push(ele)
+            }
+        })
+    }
+    const [dataRender, setDataRender] = useState<object[]>([])
+    ShipmentTypeData()
     return (
         <>
             <div className={ShippingStyles.Container}>
@@ -56,8 +71,8 @@ const Shipping = () => {
                         <button
                             onClick={
                                 () => {
+                                    setShipmentType((prev: any) => !prev)
                                     setActiveButton("Shipment Type")
-                                    console.log(ActiveButton)
                                 }
                             }
                             className={ActiveButton === "Shipment Type" ? ShippingStyles.active : ShippingStyles.notactive}
@@ -65,11 +80,25 @@ const Shipping = () => {
                             Shipment Type
                             <KeyboardArrowDownIcon />
                         </button>
+                        {
+                            ShipmentType &&
+                            <div className={ShippingStyles.shipmentType}>
+                                <span
+                                    onClick={() => {
+                                        setDataRender(importValues)
+                                    }}
+                                >Import</span>
+                                <span
+                                    onClick={() => {
+                                        setDataRender(exportValues)
+                                    }}
+                                >Export</span>
+                            </div>
+                        }
                         <button
                             onClick={
                                 () => {
                                     setActiveButton("Shipment_Date")
-                                    console.log(ActiveButton)
                                 }
                             }
                             className={ActiveButton === "Shipment_Date" ? ShippingStyles.active : ShippingStyles.notactive}
@@ -86,7 +115,7 @@ const Shipping = () => {
                     </div>
                 </div>
                 <div className={ShippingStyles.Table}>
-                    {/* <Table data={data} TableHead={TableHeaderShipment}/> */}
+                    <Table ShippingData={dataRender} TableHead={TableHeaderShipment} />
                 </div>
             </div>
         </>

@@ -1,8 +1,11 @@
+import arrowUp from "./assets/arrowUp.png";
+import arrowDown from "./assets/downArrow.png";
 import { UseContext } from "./context/context";
 import { useNavigate } from "react-router-dom";
 import TableStyles from "./styles/Table.module.scss";
 
-export const Table = ({ data, TableHead }: any) => {
+
+export const Table = ({ data, TableHead, ShippingData }: any) => {
     const navigate = useNavigate()
     const { setControlTable } = UseContext()
     return (
@@ -29,7 +32,7 @@ export const Table = ({ data, TableHead }: any) => {
                             <td >{customers.last_name}</td>
                             <td >{customers.email}</td>
                             <td >{customers.phone}</td>
-                            <td >{customers.is_activ}</td>
+                            <td >{customers.is_activE}</td>
                             <td className={TableStyles.ButtonBox}>
                                 <div className={TableStyles.btn}>
                                     <button onClick={() => {
@@ -39,6 +42,32 @@ export const Table = ({ data, TableHead }: any) => {
                                 </div>
                                 <div className={TableStyles.btn}>
                                     <button className={TableStyles.Edit}>Edit</button>
+                                </div>
+                            </td>
+                        </tr>
+                    ))}
+
+                    {ShippingData?.map((customers: any) => (
+                        <tr key={customers._id}>
+                            <td className={TableStyles.ProfileIconBox}>
+                                <div className={TableStyles.ProfileIconImg}>
+                                    {customers.shipping_type == "export" ?
+                                        <img src={arrowUp} alt="userimage" className={TableStyles.ArrowClass}/> :
+                                        <img src={arrowDown} alt="userimage"  className={TableStyles.ArrowClass}/>
+                                    }
+                                </div>
+                                <div className={TableStyles.titleShipmentType}>{customers.shipping_type.toUpperCase()}</div>
+                            </td>
+                            <td >{customers.local_government}</td>
+                            <td >
+                                <span>{customers.destination_port_country}</span>
+                                <span></span>
+                            </td>
+                            <td >{customers.shipment_pickup_date.slice(0,10)}</td>
+                            <td >{customers._id}</td>
+                            <td className={TableStyles.ButtonBox}>
+                                <div className={TableStyles.btn}>
+                                    <button className={TableStyles.Edit}>View Details</button>
                                 </div>
                             </td>
                         </tr>

@@ -75,6 +75,26 @@
         background-color: variables.$Link-Background;
         color: variables.$button-color;
       }
+      .shipmentType{
+        top: 340px;
+        width: 80px;
+        left: 492px;
+        height: 40px;
+        display: flex;
+        position: absolute;
+        border-radius: 5px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: whitesmoke;
+        background-color:variables.$Link-Background;
+        span{
+          &:hover{
+            cursor: pointer;
+          }
+          display: block;
+        }
+      }
     }
     .inputContainer {
       flex: 1;
@@ -91,7 +111,6 @@
           border: none;
           outline: none;
           width: 80%;
-          // font-size: 12px;
         }
         input::placeholder {
           font-size: 12px;
