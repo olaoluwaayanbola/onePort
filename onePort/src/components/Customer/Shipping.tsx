@@ -1,21 +1,22 @@
 import { Table } from "../../Table";
+import { useState,useEffect } from "react"
+import { dataFetching } from "../../data/data";
 import ShippingStyles from "./Shipping.module.scss";
 import SearchIcon from '@mui/icons-material/Search';
 import { TableHeaderShipment } from "../../data/data";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { dataFetching } from "../../data/data";
-import { useEffect, useState } from "react"
 
 const Shipping = () => {
-    const [dataRender, setDataRender] = useState<object[]>()
     const [ActiveButton, setActiveButton] = useState<any>("")
     const [ShipmentType, setShipmentType] = useState<any>(false)
+    const [dataRender, setDataRender] = useState<object[]>([])
     const { data } = dataFetching("https://demo3522726.mockable.io/get_single_customer_shipments/123456789")
     const importValues: object[] = []
     const exportValues: object[] = []
+
     const ShipmentTypeData = () => {
-        data?.map((ele: any) => {
+        dataRender?.map((ele: any) => {
             if (ele.shipping_type === "import") {
                 importValues.push(ele)
             } else {
@@ -24,11 +25,8 @@ const Shipping = () => {
         })
     }
     useEffect(() => {
-        ShipmentTypeData()
         setDataRender(data)
-    }, [data])
-
-    console.log(importValues)
+    },[data])
     return (
         <>
             <div className={ShippingStyles.Container}>
@@ -89,11 +87,13 @@ const Shipping = () => {
                             <div className={ShippingStyles.shipmentType}>
                                 <span
                                     onClick={() => {
+                                        ShipmentTypeData()
                                         setDataRender(importValues)
                                     }}
                                 >Import</span>
                                 <span
                                     onClick={() => {
+                                        ShipmentTypeData()
                                         setDataRender(exportValues)
                                     }}
                                 >Export</span>
