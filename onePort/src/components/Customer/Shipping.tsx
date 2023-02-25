@@ -16,7 +16,7 @@ const Shipping = () => {
     const exportValues: object[] = []
 
     const ShipmentTypeData = () => {
-        data?.map((ele: any) => {
+        dataRender?.map((ele: any) => {
             if (ele.shipping_type === "import") {
                 importValues.push(ele)
             } else {
@@ -26,9 +26,7 @@ const Shipping = () => {
     }
     useEffect(() => {
         setDataRender(data)
-        ShipmentTypeData()
-    },[])
-
+    },[data])
     return (
         <>
             <div className={ShippingStyles.Container}>
@@ -89,11 +87,13 @@ const Shipping = () => {
                             <div className={ShippingStyles.shipmentType}>
                                 <span
                                     onClick={() => {
+                                        ShipmentTypeData()
                                         setDataRender(importValues)
                                     }}
                                 >Import</span>
                                 <span
                                     onClick={() => {
+                                        ShipmentTypeData()
                                         setDataRender(exportValues)
                                     }}
                                 >Export</span>
