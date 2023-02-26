@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
   .UserCard {
     display: flex;
     gap: 10px;
@@ -15,17 +16,20 @@
     align-items: center;
     border: 1px solid variables.$outlined-button-color;
     background-color: variables.$Card-background;
+    
     .ImgContainer {
       img {
         border-radius: 50%;
         padding: 10px;
       }
     }
+
     .UsersInfo {
       flex: 2;
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       .UserDetails {
         span {
           display: block;
@@ -36,6 +40,7 @@
           font-weight: bold;
         }
       }
+
       .EditButton {
         button {
           border: none;
@@ -49,6 +54,7 @@
       }
     }
   }
+
   .ButtonSearchBar {
     display: flex;
     height: 37px;
@@ -70,6 +76,7 @@
         border-radius: 6px;
         transition: ease 0.5s;
       }
+
       .active,
       button:hover {
         background-color: variables.$Link-Background;
@@ -88,6 +95,7 @@
         flex-direction: column;
         color: whitesmoke;
         background-color:variables.$Link-Background;
+        
         span{
           &:hover{
             cursor: pointer;
@@ -101,6 +109,7 @@
       display: flex;
       padding-left: 10px;
       justify-content: flex-end;
+
       .SearchBarWrapper {
         border: 1px solid variables.$outlined-button-color;
         box-shadow: 0px 1px 2px variables.$Box-shadow;

@@ -3,8 +3,8 @@ import arrowDown from "./assets/downArrow.png";
 import { UseContext } from "./context/context";
 import { useNavigate } from "react-router-dom";
 import TableStyles from "./styles/Table.module.scss";
-
-
+import Ellipse from "./assets/Ellipse.png"
+import Line from "./assets/Line.png"
 export const Table = ({ data, TableHead, ShippingData }: any) => {
     const navigate = useNavigate()
     const { setControlTable } = UseContext()
@@ -52,19 +52,24 @@ export const Table = ({ data, TableHead, ShippingData }: any) => {
                             <td className={TableStyles.ProfileIconBox}>
                                 <div className={TableStyles.ProfileIconImg}>
                                     {customers.shipping_type == "export" ?
-                                        <img src={arrowUp} alt="userimage" className={TableStyles.ArrowClass}/> :
-                                        <img src={arrowDown} alt="userimage"  className={TableStyles.ArrowClass}/>
+                                        <img src={arrowUp} alt="userimage" className={TableStyles.ArrowClass} /> :
+                                        <img src={arrowDown} alt="userimage" className={TableStyles.ArrowClass} />
                                     }
                                 </div>
                                 <div className={TableStyles.titleShipmentType}>{customers.shipping_type.toUpperCase()}</div>
                             </td>
                             <td >{customers.local_government}</td>
+                            <td className={TableStyles.arrowDesign}>
+                                <img src={Ellipse} />
+                                <img src={Line} />
+                                <img src={Ellipse} />
+                            </td>
                             <td >
                                 <span>{customers.destination_port_country}</span>
                                 <span></span>
                             </td>
-                            <td >{customers.shipment_pickup_date.slice(0,10)}</td>
-                            <td >{customers._id}</td>
+                            <td >{customers.shipment_pickup_date.slice(0, 10)}</td>
+                            <td >{customers._id.slice(0, 10)}</td>
                             <td className={TableStyles.ButtonBox}>
                                 <div className={TableStyles.btn}>
                                     <button className={TableStyles.Edit}>View Details</button>

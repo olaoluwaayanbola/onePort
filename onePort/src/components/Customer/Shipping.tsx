@@ -1,5 +1,5 @@
 import { Table } from "../../Table";
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react"
 import { dataFetching } from "../../data/data";
 import ShippingStyles from "./Shipping.module.scss";
 import SearchIcon from '@mui/icons-material/Search';
@@ -8,121 +8,112 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const Shipping = () => {
+    const [importValues, setimportValues] = useState<[]>([])
+    const [exportValues, setexportValues] = useState<[]>([])
     const [ActiveButton, setActiveButton] = useState<any>("")
-    const [ShipmentType, setShipmentType] = useState<any>(false)
     const [dataRender, setDataRender] = useState<object[]>([])
+    const [ShipmentType, setShipmentType] = useState<any>(false)
     const { data } = dataFetching("https://demo3522726.mockable.io/get_single_customer_shipments/123456789")
-    const importValues: object[] = []
-    const exportValues: object[] = []
 
     const ShipmentTypeData = () => {
-        dataRender?.map((ele: any) => {
-            if (ele.shipping_type === "import") {
-                importValues.push(ele)
-            } else {
-                exportValues.push(ele)
-            }
-        })
+        setimportValues(() => (data?.filter((eles: any) => eles.shipping_type === "import")))
+        setexportValues(() => (data?.filter((eles: any) => eles.shipping_type === "export")))
     }
+
     useEffect(() => {
+        ShipmentTypeData()
         setDataRender(data)
-    },[data])
+    }, [data])
+
+    const ShipmentDateData = () => {
+        setimportValues(() => (data?.filter((eles: any) => eles.shipping_type === "import")))
+    }
     return (
-        <>
-            <div className={ShippingStyles.Container}>
-                <div className={ShippingStyles.BackArrow}>
-                    <span className={ShippingStyles.ArrowBack}>
-                        < ArrowBackIcon />
-                    </span>
+        <main className={ShippingStyles.Container}>
+            <section className={ShippingStyles.BackArrow}>
+                <span className={ShippingStyles.ArrowBack}>
+                    < ArrowBackIcon />
+                </span>
+            </section>
+            <section className={ShippingStyles.UserCard}>
+                <div className={ShippingStyles.ImgContainer}>
+                    <img src="" alt="userImag" />
                 </div>
-                <div className={ShippingStyles.UserCard}>
-                    <div className={ShippingStyles.ImgContainer}>
-                        <img src="" alt="userImag" />
+                <div className={ShippingStyles.UsersInfo}>
+                    <div className={ShippingStyles.UserDetails}>
+                        <span className={ShippingStyles.UsersName}>
+                            Banji oladapo
+                        </span>
+                        <span className={ShippingStyles.UserEmail}>
+                            BanjiOladapo@gmail.com
+                        </span>
+                        <span className={ShippingStyles.UsersPhoneNumber}>
+                            0905768767
+                        </span>
                     </div>
-                    <div className={ShippingStyles.UsersInfo}>
-                        <div className={ShippingStyles.UserDetails}>
-                            <span className={ShippingStyles.UsersName}>
-                                Banji oladapo
-                            </span>
-                            <span className={ShippingStyles.UserEmail}>
-                                BanjiOladapo@gmail.com
-                            </span>
-                            <span className={ShippingStyles.UsersPhoneNumber}>
-                                0905768767
-                            </span>
-                        </div>
-                        <div className={ShippingStyles.EditButton}>
-                            <button>Edit</button>
-                        </div>
+                    <div className={ShippingStyles.EditButton}>
+                        <button>Edit</button>
                     </div>
                 </div>
-                <div className={ShippingStyles.ButtonSearchBar}>
-                    <div className={ShippingStyles.btnContainer}>
-                        <button
-                            onClick={
-                                () => {
-                                    setActiveButton("New_Shipment")
-                                    console.log(ActiveButton)
-                                }
+            </section>
+            <section className={ShippingStyles.ButtonSearchBar}>
+                <div className={ShippingStyles.btnContainer}>
+                    <button
+                        onClick={
+                            () => {
+                                setActiveButton("New_Shipment")
+                                console.log(ActiveButton)
                             }
-                            className={ActiveButton === "New_Shipment" ? ShippingStyles.active : ShippingStyles.notactive}
-                        >
-                            Add New Shipments
-                            <KeyboardArrowDownIcon />
-                        </button>
-                        <button
-                            onClick={
-                                () => {
-                                    setShipmentType((prev: any) => !prev)
-                                    setActiveButton("Shipment Type")
-                                }
-                            }
-                            className={ActiveButton === "Shipment Type" ? ShippingStyles.active : ShippingStyles.notactive}
-                        >
-                            Shipment Type
-                            <KeyboardArrowDownIcon />
-                        </button>
-                        {
-                            ShipmentType &&
-                            <div className={ShippingStyles.shipmentType}>
-                                <span
-                                    onClick={() => {
-                                        ShipmentTypeData()
-                                        setDataRender(importValues)
-                                    }}
-                                >Import</span>
-                                <span
-                                    onClick={() => {
-                                        ShipmentTypeData()
-                                        setDataRender(exportValues)
-                                    }}
-                                >Export</span>
-                            </div>
                         }
-                        <button
-                            onClick={
-                                () => {
-                                    setActiveButton("Shipment_Date")
-                                }
+                        className={ActiveButton === "New_Shipment" ? ShippingStyles.active : ShippingStyles.notactive}
+                    >
+                        Add New Shipments
+                        <KeyboardArrowDownIcon />
+                    </button>
+                    <button
+                        onClick={
+                            () => {
+                                setShipmentType((prev: any) => !prev)
+                                setActiveButton("Shipment Type")
                             }
-                            className={ActiveButton === "Shipment_Date" ? ShippingStyles.active : ShippingStyles.notactive}
-                        >
-                            Shipment Date
-                            <KeyboardArrowDownIcon />
-                        </button>
-                    </div>
-                    <div className={ShippingStyles.inputContainer}>
-                        <div className={ShippingStyles.SearchBarWrapper}>
-                            <SearchIcon className={ShippingStyles.Icon} />
-                            <input type="text" placeholder="Search by shipment ID,Destination" />
+                        }
+                        className={ActiveButton === "Shipment Type" ? ShippingStyles.active : ShippingStyles.notactive}
+                    >
+                        Shipment Type
+                        <KeyboardArrowDownIcon />
+                    </button>
+                    {
+                        ShipmentType &&
+                        <div className={ShippingStyles.shipmentType}>
+                            <span
+                                onClick={() => {setDataRender(importValues)}}
+                                role="button"
+                            >Import</span>
+                            <span
+                                onClick={() => {setDataRender(exportValues)}}
+                                role="button"
+                            >Export</span>
                         </div>
+                    }
+                    <button
+                        onClick={() => { setActiveButton("Shipment_Date")}}
+                        className={ActiveButton === "Shipment_Date" ? ShippingStyles.active : ShippingStyles.notactive}
+                    >
+                        Shipment Date
+                        <KeyboardArrowDownIcon />
+                    </button>
+                </div>
+                <div className={ShippingStyles.inputContainer}>
+                    <div className={ShippingStyles.SearchBarWrapper}>
+                        <SearchIcon className={ShippingStyles.Icon} />
+                        <input type="text" placeholder="Search by shipment ID,Destination" />
                     </div>
                 </div>
-                <div className={ShippingStyles.Table}>
-                    <Table ShippingData={dataRender} TableHead={TableHeaderShipment} />
-                </div>
-            </div>
-        </>
+            </section>
+            <section className={ShippingStyles.Table}>
+                <Table ShippingData={dataRender} TableHead={TableHeaderShipment} />
+            </section>
+        </main>
     )
 }
 
