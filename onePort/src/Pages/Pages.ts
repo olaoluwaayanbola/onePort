@@ -14,7 +14,7 @@ export interface LinkTypes {
     logo: any,
 }
 
-export const Links_Path = [
+export const Links_Path:LinkTypes[]= [
     {
         name: 'Dashboard',
         path: '/Dashboard',
