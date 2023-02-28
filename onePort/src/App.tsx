@@ -5,7 +5,7 @@ import SideBar from "./components/SideBar/SideBar";
 
 function App() {
   return (
-    <div className="App">
+    <div >
       <Layout />
     </div>
   )
@@ -13,7 +13,7 @@ function App() {
 
 function Layout() {
   return (
-    <>
+    <div className="App">
       <div className="left">
         <SideBar />
       </div>
@@ -21,7 +21,7 @@ function Layout() {
         <div><TopBar /></div>
         <main><DashRoutes /></main>
       </div>
-    </>
+    </div>
   )
 }
 
