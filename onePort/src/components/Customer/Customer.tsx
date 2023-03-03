@@ -8,9 +8,13 @@ const Customer = () => {
     /**
      * fetching data from a function created in the data file
      * using the current path to conditionally render the file
-     */
+    */
     const [data, setData] = useState<{}[]>([]);
     const path = useLocation().pathname;
+
+    /**
+     * useEffect to fetch the data on mount
+    */
     useEffect(() => {
         const fetch = async () => {
             try {
