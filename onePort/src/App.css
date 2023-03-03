@@ -2,12 +2,11 @@
   display: flex;
   flex-wrap: wrap;
   height: 100vh;
-  background-color: aqua;
 }
 .left {
   flex: 1;
-  position: sticky;
-  top: 0;
+  /* position: sticky;
+  top: 0; */
 }
 .right {
   flex: 4.7;

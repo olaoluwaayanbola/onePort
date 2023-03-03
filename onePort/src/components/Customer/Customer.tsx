@@ -1,30 +1,46 @@
 import { Table } from "../../Table";
-import { Outlet } from "react-router-dom";
-import { UseContext } from "../../context/context";
+import { useEffect, useState } from "react";
 import customerStyles from "./Customer.module.scss";
+import { Outlet, useLocation } from "react-router-dom";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import { dataFetching,TableHeads } from "../../data/data";
-
-
+import { dataFetching, TableHeads } from "../../data/data";
 const Customer = () => {
-    const { controlTable } = UseContext()
-    const { data } = dataFetching("https://demo3522726.mockable.io/get_customers")
-    return (
-        <div className={customerStyles.Container}>
-            {
-                controlTable &&
-                <>
-                    <div className={customerStyles.AddCustomerContainer}>
-                        <button className={customerStyles.AddCustomer}>
-                            Add Customer
-                            <AddOutlinedIcon />
-                        </button>
-                    </div>
-                    <Table data={data} TableHead={TableHeads}/>
-                </>
+    /**
+     * fetching data from a function created in the data file
+     * using the current path to conditionally render the file
+     */
+    const [data, setData] = useState<{}[]>([]);
+    const path = useLocation().pathname;
+    useEffect(() => {
+        const fetch = async () => {
+            try {
+                const { data } = dataFetching("https://demo3522726.mockable.io/get_customers")
+                setData(data)
+            } catch (err) {
+                console.log(err)
             }
-            <Outlet />
-        </div>
+        }
+        fetch()
+    }, []);
+
+    return (
+        <main >
+            <section className={customerStyles.Container}>
+                {
+                    path !== "/shipping" &&
+                    (<>
+                        <div className={customerStyles.AddCustomerContainer}>
+                            <button className={customerStyles.AddCustomer}>
+                                Add Customer
+                                <AddOutlinedIcon />
+                            </button>
+                        </div>
+                        <Table data={data} TableHead={TableHeads} />
+                    </>)
+                }
+                <Outlet />
+            </section>
+        </main>
     )
 }
 

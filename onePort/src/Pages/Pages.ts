@@ -32,7 +32,7 @@ export const Links_Path:LinkTypes[]= [
     },
     {
         name: 'Shipments',
-        path: '/Shipments',
+        path: '/shipments',
         logo: Shippents
     },
     {
