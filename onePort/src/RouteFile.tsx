@@ -1,17 +1,17 @@
-import { Routes, Route } from "react-router-dom";
-import Customer from "./components/Customer/Customer";
-import Shipping from "./components/Customer/Shipping";
+import { Routes, Route } from 'react-router-dom';
+import Customer from './components/Customer/Customer';
+import Shipping from './components/Customer/Shipping';
 
 const DashRoutes = () => {
-    return (
-        <>
-            <Routes>
-                <Route path="/" element={<Customer />} >
-                    <Route path="shipping" element={<Shipping />} />
-                </Route>
-            </Routes>
-        </>
-    )
-}
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Customer />}>
+          <Route path="shipping" element={<Shipping />} />
+        </Route>
+      </Routes>
+    </>
+  );
+};
 
-export default DashRoutes
+export default DashRoutes;

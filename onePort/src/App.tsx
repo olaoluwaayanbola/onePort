@@ -1,14 +1,14 @@
-import './App.css'
-import DashRoutes from "./RouteFile"
+import './App.css';
+import DashRoutes from './RouteFile';
 import TopBar from './components/TopBar/TopBar';
-import SideBar from "./components/SideBar/SideBar";
+import SideBar from './components/SideBar/SideBar';
 
 function App() {
   return (
-    <div >
+    <div>
       <Layout />
     </div>
-  )
+  );
 }
 
 function Layout() {
@@ -18,11 +18,15 @@ function Layout() {
         <SideBar />
       </div>
       <div className="right">
-        <div><TopBar /></div>
-        <main><DashRoutes /></main>
+        <div>
+          <TopBar />
+        </div>
+        <main>
+          <DashRoutes />
+        </main>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

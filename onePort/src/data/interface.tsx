@@ -1,16 +1,14 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react';
 
 interface children {
-    children?: ReactNode,
+  children?: ReactNode;
 }
 
 interface MainContextTypes {
-    controlTable: boolean,
-    setControlTable: Function
+  controlTable: boolean;
+  setControlTable: Function;
 }
 
-interface GetCustomerData {
-    
-}
+interface GetCustomerData {}
 
-export type{ children, MainContextTypes, GetCustomerData }
+export type { children, MainContextTypes, GetCustomerData };
