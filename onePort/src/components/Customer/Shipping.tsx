@@ -16,7 +16,8 @@ const Shipping = () => {
   const [ActiveButton, setActiveButton] = useState<any>('');
   const [dataRender, setDataRender] = useState<object[]>([]);
   const [ShipmentType, setShipmentType] = useState<any>(false);
-  const [data, setData] = useState<any>([]);
+//   const [data, setData] = useState<any>([]);
+
   const ShipmentTypeData = () => {
     setimportValues(() =>
       data?.filter((eles: any) => eles.shipping_type === 'import'),
@@ -30,30 +31,22 @@ const Shipping = () => {
    * the first useEffect fectches data from the api and passes when the component mounts
    * the second useEffect runs diffrent functionalities when the data changes
    */
-  useEffect(() => {
-    const fetch = () => {
-      try {
-        const { data } = dataFetching(
-          'https://demo3522726.mockable.io/get_single_customer_shipments/123456789',
-        );
-        setData(data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetch();
-  }, []);
+  const { data } = dataFetching(
+    'https://demo3522726.mockable.io/get_single_customer_shipments/123456789',
+  );
+
 
   useEffect(() => {
     ShipmentTypeData();
     setDataRender(data);
   }, [data]);
 
-  const ShipmentDateData = () => {
-    setimportValues(() =>
-      data?.filter((eles: any) => eles.shipping_type === 'import'),
-    );
-  };
+//   const ShipmentDateData = () => {
+//     setimportValues(() =>
+//       data?.filter((eles: any) => eles.shipping_type === 'import'),
+//     );
+//   };
+
   return (
     <main className={ShippingStyles.Container}>
       <section className={ShippingStyles.BackArrow}>
