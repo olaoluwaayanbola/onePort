@@ -91,7 +91,6 @@ export const Table = ({ data, TableHead, ShippingData }: any) => {
               </td>
             </tr>
           ))}
-          ;
         </tbody>
       </table>
     </>
